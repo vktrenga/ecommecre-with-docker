@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  api:
+    container_name: ecommerce-api
+    restart: on-failure
+    build: .
+    ports: # To map docker portal and app running portal
+      - "4000:8000"
+    environment: # To ENV values form compose file
+      - SERVER_PORT=8000
+      - MONGO_DB_URL=mongodb://mongo:27017/ecommerce
+    # volumes:
+    #   - ./:/app
+    #command: npm run debug
+  mongo:
+    image: mongo:4.2.8
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+  
+volumes:
+  mongodb:
+  mongodb_config:
+  #
+  https://vktrenga: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@github.com/vktrenga/ecommecre-with-docker.git
