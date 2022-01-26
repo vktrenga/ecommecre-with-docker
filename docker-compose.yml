@@ -24,4 +24,3 @@ volumes:
   mongodb:
   mongodb_config:
   #
-  https://vktrenga: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@github.com/vktrenga/ecommecre-with-docker.git
