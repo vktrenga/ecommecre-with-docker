@@ -1,31 +1,66 @@
 # ecommerce-api
 
+## Prerequisites
 
-Docker Commends
+- [Install Docker](https://docs.docker.com/get-docker/)
+- [Install Docker Compose](https://docs.docker.com/compose/install/)
 
-Create/ Build Docker Image
+## Docker Compose Setup
 
-Syntax :``` docker build --tag <ImageName?> . ```
+1. **Clone the repository**  
+   ```sh
+   git clone <your-repo-url>
+   cd ecommecre-with-docker
+   ```
 
-Ex : ``` docker build --tag e-commerce-api . ```
+2. **Build and start containers**  
+   ```sh
+   docker-compose up --build
+   ```
 
+   This will start both the API and MongoDB containers as defined in [docker-compose.yml](docker-compose.yml).
 
-List Docker Images
+3. **Access the API**  
+   The API will be available at [http://localhost:4000](http://localhost:4000).
 
-Syntax : ``` docker images ```
+## Common Docker Commands
 
-Run Docker Image
+- **Build Docker Image**
+  ```sh
+  docker build --tag <ImageName> .
+  ```
+  Example:
+  ```sh
+  docker build --tag e-commerce-api .
+  ```
 
-Syntax : ``` docker run  <ImageName?> ```
+- **List Docker Images**
+  ```sh
+  docker images
+  ```
 
-Ex : ``` docker run e-commerce-api ```
+- **Run Docker Image**
+  ```sh
+  docker run <ImageName>
+  ```
+  Example:
+  ```sh
+  docker run e-commerce-api
+  ```
 
-Run Docker Image with Publish
+- **Run Docker Image with Port Mapping**
+  ```sh
+  docker run --publish 8000:8000 <ImageName>
+  ```
+  Example:
+  ```sh
+  docker run --publish 4000:8000 node-docker
+  ```
 
-Syntax : ``` docker run --publish 8000:8000  <ImageName?> ```
+  - `4000` is the Docker host port
+  - `8000` is the application container port
 
-Ex : ``` docker run --publish 4000:8000 node-docker```
+## Notes
 
-Here 4000 is docker port
-8000 is application running port
-We will use 4000 to call application changes
+- For environment variables, see [.sample.env](.sample.env).
+- The API source code is
